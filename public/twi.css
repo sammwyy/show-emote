@@ -1,0 +1,32 @@
+#app {
+  display: none;
+}
+
+#login-form {
+  display: none;
+}
+
+.emote {
+  width: auto;
+  height: 84px;
+}
+
+.fade-in {
+  animation: fadeIn ease 5s;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Emote by @Sammwy</title>
+
+    <!-- Import Tmi.js -->
+    <script src="https://github.com/tmijs/tmi.js/releases/download/v1.8.3/tmi.min.js"></script>
+    
+    <!-- Import Twi -->
+    <script src="/twi.js"></script>
+    <link rel="stylesheet" href="/twi.css">
+</head>
+<body>
+    <div id="app"></div>
+    <div id="login-form">
+        <form>
+            <h1>Show Emote</h1>
+            <span>Channel Name</span>
+            <input type="text" placeholder="Twitch Channel" name="username" required>
+            <br/>
+            <span>7TV Emotes</span>
+            <input type="checkbox" name="7tv" id="">
+            <br/>
+            <span>BetterTTV Emotes</span>
+            <input type="checkbox" name="bttv" id="">
+            <br/>
+            <span>FFZ Emotes</span>
+            <input type="checkbox" name="ffz" id="">
+            <br/>
+            <span>Twitch Emotes</span>
+            <input type="checkbox" name="twitch" id="" checked>
+            <br/>
+            <button>Login</button>
+        </form>
+    </div>
+
+    <!-- Import ShowEmote code -->
+    <script src="/showemote.js"></script>
+</body>
+</html>
