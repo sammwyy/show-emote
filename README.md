@@ -6,7 +6,17 @@ Twitch widget for !showemote
 
 ### 📚 Description
 
-This twitch widget allows to show an emote in your obs scene when a user types "!showemote <emote>" in the chat.
+This twitch widget allows to show an emote in your obs scene when a user types "!showemote <emote>" in the chat.  
+  
+### 📋 Features
+
+- [x] 7TV Emotes.
+- [x] BetterTTV Emotes.
+- [x] FrankerFaceZ Emotes.
+- [x] Twitch Emotes.
+- [ ] Global emotes.
+- [ ] Other channels emotes.
+- [ ] More effects.
 
 ### ⚙️ Installation
 
