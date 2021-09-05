@@ -45,6 +45,37 @@ class Twi {
     return emotes;
   }
 
+  discoverOtherChannelEmotes(emotesObject) {
+    const emotes = Object.keys(emotesObject || {});
+    const firstEmote = emotes[0];
+
+    if (firstEmote) {
+      let cdn = {};
+
+      if (firstEmote.includes("emotesv2")) {
+        cdn = {
+          low: `https://static-cdn.jtvnw.net/emoticons/v2/${firstEmote}/default/dark/1.0`,
+          medium: `https://static-cdn.jtvnw.net/emoticons/v2/${firstEmote}/default/dark/2.0`,
+          high: `https://static-cdn.jtvnw.net/emoticons/v2/${firstEmote}/default/dark/3.0`,
+        };
+      } else {
+        cdn = {
+          low: `https://static-cdn.jtvnw.net/emoticons/v1/${firstEmote}/1.0`,
+          medium: `https://static-cdn.jtvnw.net/emoticons/v1/${firstEmote}/2.0`,
+          high: `https://static-cdn.jtvnw.net/emoticons/v1/${firstEmote}/3.0`,
+        };
+      }
+
+      return {
+        type: "twitch",
+        cdn,
+        id: firstEmote,
+        code: "unknown",
+        owner: "unknown",
+      };
+    }
+  }
+
   useChat() {
     this.chat = new tmi.Client({
       options: { debug: false, messagesLogLevel: "info" },
@@ -60,7 +91,10 @@ class Twi {
         },
         content: message,
         channel,
-        emotes: this.trimEmotes(message),
+        emotes: [
+          ...this.trimEmotes(message),
+          this.discoverOtherChannelEmotes(tags.emotes),
+        ],
       });
     });
 
