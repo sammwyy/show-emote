@@ -15,7 +15,7 @@ This twitch widget allows to show an emote in your obs scene when a user types "
 - [x] FrankerFaceZ Emotes.
 - [x] Twitch Emotes.
 - [ ] Global emotes.
-- [ ] Other channels emotes.
+- [x] Other channels emotes.
 - [ ] More effects.
 
 ### ⚙️ Installation
