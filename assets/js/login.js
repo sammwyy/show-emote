@@ -32,6 +32,8 @@ loginForm.addEventListener("submit", e => {
         params.push(key + "=" + value);
     }
 
+    plausible('Link Generation');
+
     const url = getOBSUrl(params);
     const message = `Installation instructions:
 
