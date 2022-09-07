@@ -6,39 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show Emote by @Sammwy</title>
 
-    <!-- Import Tmi.js -->
-    <script src="https://github.com/tmijs/tmi.js/releases/download/v1.8.3/tmi.min.js"></script>
-    
-    <!-- Import Twi -->
-    <script src="twi.js"></script>
-    <link rel="stylesheet" href="twi.css">
+    <!-- Analytics -->
+    <script defer data-domain="sammwy.com" src="https://plausible.io/js/plausible.js"></script>
+
+    <!-- Impoty styles -->
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
-    <div id="app"></div>
-    <div id="login-form">
-        <a href="https://github.com/sammwyy/show-emote"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fsammwyy%2Fshow-emote&count_bg=%233240FF&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false"/></a>
-        <form>
-            <h1>Show Emote</h1>
-            <span>Channel Name</span>
-            <input type="text" placeholder="Twitch Channel" name="username" required>
-            <br/>
-            <span>7TV Emotes</span>
-            <input type="checkbox" name="7tv" id="">
-            <br/>
-            <span>BetterTTV Emotes</span>
-            <input type="checkbox" name="bttv" id="">
-            <br/>
-            <span>FFZ Emotes</span>
-            <input type="checkbox" name="ffz" id="">
-            <br/>
-            <span>Twitch Emotes</span>
-            <input type="checkbox" name="twitch" id="" checked>
-            <br/>
-            <button>Login</button>
-        </form>
+    <div class="wrapper">
+        <div class="login-card">
+            <div class="login-card-header">
+                <h1>Show Emote</h1>
+                <p>Allow viewers to place emotes on your stream screen from chat.</p>
+            </div>
+
+            <div class="login-card-body">
+                <form id="login-form">
+                    <hr class="separation"/>
+
+                    <div class="form-item">
+                        <span class="form-label">Channel Name</span>
+                        <span class="form-label-description">Name of the twitch channel to connect to, for example twitch.tv/<b>sammwy</b>.</span>
+                        <input class="form-input" name="username" type="text" placeholder="Sammwy" required>
+                    </div>
+
+                    <hr class="separation"/>
+
+                    <div class="form-item">
+                        <span class="form-label">Emotes</span>
+                        <span class="form-label-description">There are different "emote providers" available for use:</span>
+
+                        <div class="checkbox-list">
+                            <div>
+                                <input checked type="checkbox" name="twitch" class="checkbox">Twitch</input>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="7tv" class="checkbox">7TV</input>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="bttv" class="checkbox">BetterTV</input>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="ffz" class="checkbox">FrankerFaceZ</input>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="separation"/>
+
+                    <div class="login-card-footer">
+                        <button type="submit" class="btn btn-primary">🔗 Generate OBS link</button>
+                        <a href="https://paypal.me/sammwy" target="_blank" class="btn">❤️ Donate</a>
+                        <a href="https://twitter.com/sammwy" target="_blank" class="btn">✨ Follow on Twitter</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <!-- Import ShowEmote code -->
-    <script src="showemote.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 </html>

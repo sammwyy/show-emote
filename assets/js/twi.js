@@ -155,14 +155,5 @@ Twi.emoteUrlFactory = () => {
 Twi.factory = () => {
   const query = Twi.getQueries();
   const { username } = query;
-
-  const loginForm = document.getElementById("login-form");
-  const app = document.getElementById("app");
-
-  if (username) {
-    app.style.display = "block";
-    return new Twi(username);
-  } else {
-    loginForm.style.display = "block";
-  }
+  return new Twi(username);
 };
