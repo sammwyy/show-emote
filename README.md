@@ -22,7 +22,7 @@ This twitch widget allows to show an emote in your obs scene when a user types "
 
 Go to the following link and generate your Widget
 
-1. Go to the [following link](https://sammwyy.github.io/show-emote/) and generate your Widget  
+1. Go to the [following link](https://show-emote.sammwy.com/) and generate your Widget  
 2. Create a new "Navigator" type element in your OBS scenes.  
 3. The browser must be sized to cover your entire screen. It is recommended that you place it in the resolution of this. (For example 1920x1080, 1366x768, depending on your monitor)  
 4. Paste the link obtained from the first step into the browser component of the OBS.  
