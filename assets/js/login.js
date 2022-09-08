@@ -1,4 +1,18 @@
+const card = document.getElementById("login-card");
 const loginForm = document.getElementById("login-form");
+
+function checkForOldLink() {
+    const link = window.location.href;
+
+    if (link.includes("?") && link.includes("username")) {
+        card.innerHTML = `
+            <div class="error">
+                <h1>Uhgg! Sowrry T-T</h1>
+                This link has expired, visit <b>https://show-emote.sammwy.com</b> to generate a new one.
+            </div>
+        `
+    }
+}
 
 function getBaseURL() {
     const current = window.location.href;
@@ -42,3 +56,5 @@ loginForm.addEventListener("submit", e => {
 3. In the URL section paste the following link:`
     prompt(message, url);
 });
+
+checkForOldLink();
