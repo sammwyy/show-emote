@@ -50,25 +50,25 @@ class Twi {
     const firstEmote = emotes[0];
 
     if (firstEmote) {
-      let cdn = {};
+      let url = {};
 
       if (firstEmote.includes("emotesv2")) {
-        cdn = {
+        url = {
           low: `https://static-cdn.jtvnw.net/emoticons/v2/${firstEmote}/default/dark/1.0`,
-          medium: `https://static-cdn.jtvnw.net/emoticons/v2/${firstEmote}/default/dark/2.0`,
+          mid: `https://static-cdn.jtvnw.net/emoticons/v2/${firstEmote}/default/dark/2.0`,
           high: `https://static-cdn.jtvnw.net/emoticons/v2/${firstEmote}/default/dark/3.0`,
         };
       } else {
-        cdn = {
+        url = {
           low: `https://static-cdn.jtvnw.net/emoticons/v1/${firstEmote}/1.0`,
-          medium: `https://static-cdn.jtvnw.net/emoticons/v1/${firstEmote}/2.0`,
+          mid: `https://static-cdn.jtvnw.net/emoticons/v1/${firstEmote}/2.0`,
           high: `https://static-cdn.jtvnw.net/emoticons/v1/${firstEmote}/3.0`,
         };
       }
 
       return {
         type: "twitch",
-        cdn,
+        url,
         id: firstEmote,
         code: "unknown",
         owner: "unknown",
