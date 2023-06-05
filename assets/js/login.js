@@ -5,6 +5,7 @@ function checkForOldLink() {
     const link = window.location.href;
 
     if (link.includes("?") && link.includes("username")) {
+        console.log("Legacy link detected.");
         card.innerHTML = `
             <div class="error">
                 <h1>Uhgg! Sowrry T-T</h1>

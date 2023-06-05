@@ -25,7 +25,7 @@ function spawnEmote(emote) {
   const image = emote.url.high || emote.url.mid || emote.url.low;
   console.log(`Displaying emote ${emote.code} from ${image}`);
 
-  sprite.src = `https:${image}`;
+  sprite.src = image.startsWith("http") ? image : `https:${image}`;
   sprite.style.display = "block";
   sprite.style.position = "fixed";
   sprite.classList.add("emote");
@@ -46,3 +46,21 @@ twi.addCommand("showemote", (message, _args) => {
     }, 1000 * 5);
   }
 });
+
+// Legacy
+function checkForOldLink() {
+  const link = window.location.href;
+
+  if (link.includes("=true")) {
+      console.log("Legacy link detected.");
+      document.body.innerHTML = `
+          <div class="error">
+              <h1>Uhgg! Sowrry T-T</h1>
+              This widget <b>(Showemote)</b> requires a bug-fix update.<br/>
+              Visit the following link to generate a new one: <b>https://show-emote.sammwy.com</b>.
+          </div>
+      `
+  }
+}
+
+checkForOldLink();
