@@ -22,8 +22,10 @@ function moveRandom(obj) {
 
 function spawnEmote(emote) {
   const sprite = document.createElement("img");
+  const image = emote.url.high || emote.url.mid || emote.url.low;
+  console.log(`Displaying emote ${emote.code} from ${image}`);
 
-  sprite.src = emote.cdn.high;
+  sprite.src = `https:${image}`;
   sprite.style.display = "block";
   sprite.style.position = "fixed";
   sprite.classList.add("emote");

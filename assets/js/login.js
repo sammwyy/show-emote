@@ -28,27 +28,22 @@ function getOBSUrl(params = []) {
 loginForm.addEventListener("submit", e => {
     e.preventDefault();
 
-    const params = [];
+    let username = null;
+    let providers = [];
 
     for (const element of loginForm.querySelectorAll("input")) {
-        const type = element.getAttribute("type");
         const key = element.getAttribute("name");
-        let value = null;
-
-        if (type == "text") {
-            value = element.value;
-        } else if (type == "checkbox") {
-            value = element.checked;
-        } else {
-            continue;
-        }
+        const { checked, value } = element;
         
-        params.push(key + "=" + value);
+        if (key == "username") {
+            username = value;
+        } else if (key == "twitch" || key == "7tv" || key == "bttv" || key == "ffz") {
+            if (checked) providers.push(key);
+        }
     }
 
     plausible('Link Generation');
-
-    const url = getOBSUrl(params);
+    const url = getOBSUrl([`username=${username}`, `providers=${providers.join(",")}`]);
     const message = `Installation instructions:
 
 1. Create a new source of type "web browser" in your OBS scene.
