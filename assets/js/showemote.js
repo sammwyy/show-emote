@@ -22,7 +22,12 @@ function moveRandom(obj) {
 
 function spawnEmote(emote) {
   const sprite = document.createElement("img");
-  const image = emote.url.high || emote.url.mid || emote.url.low;
+  let image = emote.url.high || emote.url.mid || emote.url.low;
+
+  if (emote.type == "twitch") {
+    image = image.replace("/static/", "/default/");
+  }
+  
   console.log(`Displaying emote ${emote.code} from ${image}`);
 
   sprite.src = image.startsWith("http") ? image : `https:${image}`;
