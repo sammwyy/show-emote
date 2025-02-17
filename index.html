@@ -1,71 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Emote by @Sammwy</title>
-
-    <!-- Analytics -->
-    <script defer data-domain="show-emote.sammwy.com" src="https://plausible.io/js/plausible.js"></script>
-    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-    
-    <!-- Impoty styles -->
-    <link rel="stylesheet" href="assets/css/login.css">
-</head>
-<body>
-    <div class="wrapper">
-        <div class="login-card" id="login-card">
-            <div class="login-card-header">
-                <h1>Show Emote</h1>
-                <p>Allow viewers to place emotes on your stream screen from chat.</p>
-                <a href="https://github.com/sammwyy/show-emote"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fsammwyy%2Fshow-emote&count_bg=%233240FF&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false"/></a>
-            </div>
-
-            <div class="login-card-body">
-                <form id="login-form">
-                    <hr class="separation"/>
-
-                    <div class="form-item">
-                        <span class="form-label">Channel Name</span>
-                        <span class="form-label-description">Name of the twitch channel to connect to, for example twitch.tv/<b>sammwy</b>.</span>
-                        <input class="form-input" name="username" type="text" placeholder="Sammwy" required>
-                    </div>
-
-                    <hr class="separation"/>
-
-                    <div class="form-item">
-                        <span class="form-label">Emotes</span>
-                        <span class="form-label-description">There are different "emote providers" available for use:</span>
-
-                        <div class="checkbox-list">
-                            <div>
-                                <input checked type="checkbox" name="twitch" class="checkbox">Twitch</input>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="7tv" class="checkbox">7TV</input>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="bttv" class="checkbox">BetterTV</input>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="ffz" class="checkbox">FrankerFaceZ</input>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="separation"/>
-
-                    <div class="login-card-footer">
-                        <button type="submit" class="btn btn-primary">🔗 Generate OBS link</button>
-                        <a href="https://paypal.me/sammwy" target="_blank" class="btn">❤️ Donate</a>
-                        <a href="https://twitter.com/sammwy" target="_blank" class="btn">✨ Follow on Twitter</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <script src="assets/js/login.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sammwy's Show Emote</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

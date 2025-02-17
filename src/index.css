@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.acrylic {
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(9, 9, 11, 0.85);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+}
+
+.bg-twitch-gradient {
+  background: linear-gradient(to bottom, rgb(9, 9, 11), rgb(9, 9, 11)),
+    radial-gradient(
+      circle at top right,
+      rgba(145, 71, 255, 0.06) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(145, 71, 255, 0.06) 0%,
+      transparent 60%
+    );
+}
+
+/* Animation: Fade */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  90% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.5s ease-out;
+  opacity: 0;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Animation: Pop */
+.animate-pop-in {
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.25);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-pop-out {
+  animation: popOut 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

@@ -10,13 +10,22 @@ This twitch widget allows to show an emote in your obs scene when a user types "
   
 ## 📋 Features
 
-- [x] 7TV Emotes.
-- [x] BetterTTV Emotes.
-- [x] FrankerFaceZ Emotes.
-- [x] Twitch Emotes.
-- [ ] Global emotes.
-- [x] Other channels emotes.
-- [ ] More effects.
+- 📦 3rd party integrations:
+  - 7tv
+  - BetterTTV
+  - FrankerFaceZ
+  - Twitch (User and other channel emotes)
+- 🎨 Animations:
+  - Fade
+  - Pop
+- 🏓 Movements:
+  - Static (No movement)
+  - DVD Bounce
+- ⚙ Customization:
+  - Display duration.
+  - Max emotes on screen.
+  - Custom command (!showemote)
+  - Empty command (No command needed, just any emote on any message)
 
 ## ⚙️ Installation
 
@@ -30,5 +39,5 @@ Go to the following link and generate your Widget
 
 ## ❤️ Donations
 
-Donations by PayPal, Patreon or Ko-fi are appreciated. It would help me a lot to do more projects.  
+Donations by [Ko-fi](https://ko-fi.com/sammwy) are appreciated. It would help me a lot to do more projects.  
 (Go to the sponsor section on the right to make a donation)
