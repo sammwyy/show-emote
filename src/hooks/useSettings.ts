@@ -4,6 +4,7 @@ import {
   EmoteMovement,
   EmoteProvider,
   EmoteSettings,
+  EmoteBypassCooldown,
 } from "@/types";
 
 export const defaultSettings: Required<EmoteSettings> = {
@@ -15,6 +16,8 @@ export const defaultSettings: Required<EmoteSettings> = {
   command: "!showemote",
   maxEmotes: 1,
   duration: 5,
+  cooldown: 1000,
+  bypassCooldownBy: "none",
 };
 
 export function encodeSettings(settings: Partial<EmoteSettings>): string {
@@ -43,6 +46,8 @@ function parseLegacySettings(): Required<EmoteSettings> {
   const command = params.get("command") || "!showemote";
   const maxEmotes = parseInt(params.get("maxEmotes") || "1", 10);
   const duration = parseInt(params.get("duration") || "5", 10);
+  const cooldown = parseInt(params.get("cooldown") || "1000", 10);
+  const bypassCooldownBy = (params.get("bypassCooldownBy") || "none") as EmoteBypassCooldown;
 
   return {
     username,
@@ -53,6 +58,8 @@ function parseLegacySettings(): Required<EmoteSettings> {
     command,
     maxEmotes: isNaN(maxEmotes) ? 1 : maxEmotes,
     duration: isNaN(duration) ? 5 : duration,
+    cooldown: isNaN(cooldown) ? 1000 : cooldown,
+    bypassCooldownBy,
   };
 }
 

@@ -2,6 +2,7 @@ export type EmoteProvider = "7tv" | "twitch" | "bttv" | "ffz";
 export type EmoteAnimation = "fade" | "pop";
 export type EmoteMovement = "static" | "dvd";
 export type EmoteCanUse = "any" | "mod" | "vip+mod" | "vip+mod+sub";
+export type EmoteBypassCooldown = "none" | "mod" | "vip+mod" | "vip+mod+sub";
 
 export interface EmoteSettings {
   username?: string;
@@ -12,6 +13,8 @@ export interface EmoteSettings {
   command?: string;
   maxEmotes?: number;
   duration?: number;
+  cooldown?: number;
+  bypassCooldownBy?: EmoteBypassCooldown;
 }
 
 export interface Emote {

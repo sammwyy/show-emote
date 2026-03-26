@@ -9,6 +9,7 @@ import Select from "@/components/ui/select";
 import { encodeSettings } from "@/hooks/useSettings";
 import {
   EmoteAnimation,
+  EmoteBypassCooldown,
   EmoteCanUse,
   EmoteMovement,
   EmoteProvider,
@@ -101,8 +102,8 @@ export default function Dashboard() {
                         const newProviders = e.target.checked
                           ? [...(settings.providers || []), provider]
                           : (settings.providers || []).filter(
-                              (p) => p !== provider
-                            );
+                            (p) => p !== provider
+                          );
                         setSettings({
                           ...settings,
                           providers: newProviders as EmoteProvider[],
@@ -218,6 +219,50 @@ export default function Dashboard() {
                       });
                     }}
                   />
+                </div>
+              </div>
+
+              {/* Fifth */}
+              <div className="grid grid-cols-2 gap-6">
+                {/* settings.cooldown */}
+                <div>
+                  <Label>Cooldown per user (ms)</Label>
+
+                  <Input
+                    type="number"
+                    placeholder="1000"
+                    value={settings.cooldown}
+                    onChange={(e) => {
+                      const raw = e.target.value;
+                      const cooldown = parseInt(raw);
+                      if (isNaN(cooldown) || cooldown < 0) return;
+
+                      setSettings({
+                        ...settings,
+                        cooldown,
+                      });
+                    }}
+                  />
+                </div>
+
+                {/* settings.bypassCooldownBy */}
+                <div>
+                  <Label>Bypass Cooldown By</Label>
+
+                  <Select
+                    value={settings.bypassCooldownBy || "none"}
+                    onChange={(e) =>
+                      setSettings({
+                        ...settings,
+                        bypassCooldownBy: e.target.value as EmoteBypassCooldown,
+                      })
+                    }
+                  >
+                    <option value="none">None</option>
+                    <option value="mod">Only Mods</option>
+                    <option value="vip+mod">Mods + VIPs</option>
+                    <option value="vip+mod+sub">Mods + VIPs + Subs</option>
+                  </Select>
                 </div>
               </div>
             </div>

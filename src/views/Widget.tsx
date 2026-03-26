@@ -13,6 +13,7 @@ interface EmoteDisplay {
 export default function Widget() {
   const [displayedEmotes, setDisplayedEmotes] = useState<EmoteDisplay[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
+  const userCooldowns = useRef<Map<string, number>>(new Map());
   const settings = useSettings();
   const emotes = useTwitchEmotes(settings.username, settings.providers);
   const chat = useTwitchChat(settings.username);
@@ -38,6 +39,22 @@ export default function Widget() {
       const emoteName = message.split(" ")[isEmptyCommand ? 0 : 1]?.trim();
 
       if (!emoteName) return;
+
+      let canBypass = false;
+      if (settings.bypassCooldownBy !== "none") {
+        if (settings.bypassCooldownBy === "mod" && isMod) canBypass = true;
+        else if (settings.bypassCooldownBy === "vip+mod" && (isMod || isVip)) canBypass = true;
+        else if (settings.bypassCooldownBy === "vip+mod+sub" && (isMod || isVip || isSub)) canBypass = true;
+      }
+
+      if (!canBypass && tags.username) {
+        const lastUsed = userCooldowns.current.get(tags.username) || 0;
+        const now = Date.now();
+        if (now - lastUsed < (settings.cooldown || 1000)) {
+          return;
+        }
+        userCooldowns.current.set(tags.username, now);
+      }
 
       // Check local emotes first
       let emote = emotes.find((e) => e.code === emoteName);
