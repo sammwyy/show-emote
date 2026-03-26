@@ -14,6 +14,7 @@ export interface EmoteSettings {
   maxEmotes?: number;
   duration?: number;
   cooldown?: number;
+  globalCooldown?: number;
   bypassCooldownBy?: EmoteBypassCooldown;
 }
 

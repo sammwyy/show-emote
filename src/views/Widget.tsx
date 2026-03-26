@@ -14,6 +14,7 @@ export default function Widget() {
   const [displayedEmotes, setDisplayedEmotes] = useState<EmoteDisplay[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const userCooldowns = useRef<Map<string, number>>(new Map());
+  const lastGlobalUse = useRef<number>(0);
   const settings = useSettings();
   const emotes = useTwitchEmotes(settings.username, settings.providers);
   const chat = useTwitchChat(settings.username);
@@ -47,13 +48,23 @@ export default function Widget() {
         else if (settings.bypassCooldownBy === "vip+mod+sub" && (isMod || isVip || isSub)) canBypass = true;
       }
 
-      if (!canBypass && tags.username) {
-        const lastUsed = userCooldowns.current.get(tags.username) || 0;
+      if (!canBypass) {
         const now = Date.now();
-        if (now - lastUsed < (settings.cooldown || 1000)) {
+        // Check global cooldown
+        if (now - lastGlobalUse.current < (settings.globalCooldown || 0)) {
           return;
         }
-        userCooldowns.current.set(tags.username, now);
+
+        // Check user cooldown
+        if (tags.username) {
+          const lastUsed = userCooldowns.current.get(tags.username) || 0;
+          if (now - lastUsed < (settings.cooldown || 1000)) {
+            return;
+          }
+          userCooldowns.current.set(tags.username, now);
+        }
+
+        lastGlobalUse.current = now;
       }
 
       // Check local emotes first

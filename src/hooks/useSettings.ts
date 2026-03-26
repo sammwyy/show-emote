@@ -17,6 +17,7 @@ export const defaultSettings: Required<EmoteSettings> = {
   maxEmotes: 1,
   duration: 5,
   cooldown: 1000,
+  globalCooldown: 0,
   bypassCooldownBy: "none",
 };
 
@@ -47,6 +48,7 @@ function parseLegacySettings(): Required<EmoteSettings> {
   const maxEmotes = parseInt(params.get("maxEmotes") || "1", 10);
   const duration = parseInt(params.get("duration") || "5", 10);
   const cooldown = parseInt(params.get("cooldown") || "1000", 10);
+  const globalCooldown = parseInt(params.get("globalCooldown") || "0", 10);
   const bypassCooldownBy = (params.get("bypassCooldownBy") || "none") as EmoteBypassCooldown;
 
   return {
@@ -59,6 +61,7 @@ function parseLegacySettings(): Required<EmoteSettings> {
     maxEmotes: isNaN(maxEmotes) ? 1 : maxEmotes,
     duration: isNaN(duration) ? 5 : duration,
     cooldown: isNaN(cooldown) ? 1000 : cooldown,
+    globalCooldown: isNaN(globalCooldown) ? 0 : globalCooldown,
     bypassCooldownBy,
   };
 }

@@ -223,10 +223,10 @@ export default function Dashboard() {
               </div>
 
               {/* Fifth */}
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-3 gap-6">
                 {/* settings.cooldown */}
                 <div>
-                  <Label>Cooldown per user (ms)</Label>
+                  <Label>User Cooldown (ms)</Label>
 
                   <Input
                     type="number"
@@ -240,6 +240,27 @@ export default function Dashboard() {
                       setSettings({
                         ...settings,
                         cooldown,
+                      });
+                    }}
+                  />
+                </div>
+
+                {/* settings.globalCooldown */}
+                <div>
+                  <Label>Global Cooldown (ms)</Label>
+
+                  <Input
+                    type="number"
+                    placeholder="0"
+                    value={settings.globalCooldown}
+                    onChange={(e) => {
+                      const raw = e.target.value;
+                      const globalCooldown = parseInt(raw);
+                      if (isNaN(globalCooldown) || globalCooldown < 0) return;
+
+                      setSettings({
+                        ...settings,
+                        globalCooldown,
                       });
                     }}
                   />
